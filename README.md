@@ -194,6 +194,44 @@ To use the snapshot transformer maven plugin in your Maven build, you can config
     </pluginRepository>
 </pluginRepositories>
 ```
+## Steps to transform
+
+Step 1. Install JDK 17 or upper Version
+
+Step 2. download Maven zip file
+
+Step 3. set enviorment path variable for JAVA_HOME and MAVEN_HOME in system variable 
+
+step 4. verify that maven and jdk both are installed using these commands.
+	command 1. java -version
+	command 2. mvn -version
+ 
+step 5. download ZIP file for eclipse transformer using this GIT repo file
+
+step 6. extract this ZIP file and locate this folder
+	->org.eclipse.transformer.cli
+step 7. now run this command using command prompt
+	->mvn clean package
+step 8. Ensure you have the Transformer CLI JAR file available in the target folder. which will automatically created.
+
+step 9. Locate org.eclipse.transformer.cli-<version>.jar inside the Target folder 
+
+step 10. Run the Transformer: You can now run the transformer on your project directory using the following command:
+	->java -jar org.eclipse.transformer.cli-<version>.jar <input_directory_path> <output_directory_path> [options]
+	for example:-
+	java -jar org.eclipse.transformer.cli-1.0.0.jar Project.ear transformed/Project
+note: 1. make sure that you should paste your .ear/.war/.jar folder inside target folder where org.eclipse.transformer.cli-<version>.jar is located.
+	2. make sure that your output folder should be defined before running this command as i have already created transformed folder
+
+step 11. after running this command if it transformed successfully if will show you logs and will be finished showing this message 
+
+[main] INFO Transformer - Output [ transformed/CobaSys ] as [ A:\JAKARATA\transformer-1.0.0\org.eclipse.transformer.cli\target\transformed\Project ] took [ 00:04:02 ]
+[main] INFO Transformer - [  All Resources ] [  43535 ] Unaccepted [      0 ]   Accepted [  43535 ]
+[main] INFO Transformer - [  All Unchanged ] [  43507 ]     Failed [      0 ] Duplicated [      0 ]
+[main] INFO Transformer - [    All Changed ] [     28 ]    Renamed [      0 ]    Content [     28 ]
+[main] INFO Transformer - Transformer Return Code [ 0 ] [ Success ]
+
+
 
 ## Contributing
 
